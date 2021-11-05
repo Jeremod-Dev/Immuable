@@ -1,4 +1,4 @@
-title: Custom Template
+title: Design Pattern
 plan:
-- title: Welcome
+- title: Immuable
   statement: markdowns/welcome.md
