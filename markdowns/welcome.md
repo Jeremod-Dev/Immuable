@@ -95,7 +95,7 @@ Une fois cela fait, le courtier vous affiches les détails de vos ordres d'achat
 Order Buy{name='Tesla', type='action', stopLoss=290}
 Order Buy{name='Meta', type='action', stopLoss=290}
 ```
-Mince, il y a une erreur dans les details de l'ordre sur `Tesla`!  :unamused:
+Mince, il y a une erreur dans les details de l'ordre sur `Tesla`! 😒
 
 
 [markdowns/welcome.md](https://github.com/TechDotIO/techio-basic-template/blob/master/markdowns/welcome.md)
