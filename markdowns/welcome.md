@@ -22,9 +22,6 @@ public class Broker {
     public Broker(Integer stoploss) {
         this.stoploss = stoploss;
     }
-    public Integer getStoploss() {
-        return stoploss;
-    }
     public void setStoploss(Integer stoploss) {
         this.stoploss = stoploss;
     }
@@ -96,6 +93,28 @@ Order Buy{name='Tesla', type='action', stopLoss=290}
 Order Buy{name='Meta', type='action', stopLoss=290}
 ```
 Mince, il y a une erreur dans les details de l'ordre sur `Tesla`! 😒
+Il faut que le stopLoss ne puisse pas etre modifié. Il faut que notre classe soit immutable.
+
+![Diagramme De classe]()
+
+## Première tentative de solution
+
+Dans la classe `Broker` c'est la methode `setStopLoss` - le setteur - qui vient apporter des modifications à l'objet. L'idée dans ce cas, est de ne plus pouvoir modifier le `stopLoss`. Il faut retirer le setteur.
+
+```java
+public class Broker {
+    private Integer stoploss;
+
+    public Broker(Integer stoploss) {
+        this.stoploss = stoploss;
+    }
+
+    @Override
+    public String toString() {
+        return ""+stoploss ;
+    }
+}
+```
 
 
 [markdowns/welcome.md](https://github.com/TechDotIO/techio-basic-template/blob/master/markdowns/welcome.md)
