@@ -97,9 +97,9 @@ Il faut que le stopLoss ne puisse pas etre modifié. Il faut que notre classe so
 
 ![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/diagramme_classe1.PNG)
 
-## Première tentative de solution
+## Première solution
 
-Dans la classe `Broker` c'est la methode `setStopLoss` - le setteur - qui vient apporter des modifications à l'objet. L'idée dans ce cas, est de ne plus pouvoir modifier le `stopLoss`. Il faut retirer le setteur.
+Dans la classe `Broker` c'est la methode `setStopLoss` - le setteur - qui vient apporter des modifications à l'objet. L'idée dans ce cas, est de ne plus pouvoir modifier le `stopLoss`. Il faut retirer le setteur et l'appel de la classe `main`
 
 ```java
 public class Broker {
@@ -115,6 +115,18 @@ public class Broker {
     }
 }
 ```
+Voici à présent le résultat
+```
+Order Buy{name='Tesla', type='action', stopLoss=1200}
+Order Buy{name='Meta', type='action', stopLoss=1200}
+```
+Le stopLoss n'a pas été modifier mais en même temps, vous n'avez pas pu préciser au `broker` le stopLoss du second ordre. Pour resoudre ce problème on pourrait ajouter un `broker` pour chaque ordre d'achat... Sauf que lorsque vous faites un ordre en bourse vous pouvez demander plusieurs fois au meme `broker`.
+
+Cette solution ne résoud pas correctement notre problème de départ.
+
+## Seconde solution
+
+
 
 
 [markdowns/welcome.md](https://github.com/TechDotIO/techio-basic-template/blob/master/markdowns/welcome.md)
