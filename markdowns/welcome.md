@@ -95,7 +95,7 @@ Order Buy{name='Meta', type='action', stopLoss=290}
 Mince, il y a une erreur dans les details de l'ordre sur `Tesla`! 😒
 Il faut que le stopLoss ne puisse pas etre modifié. Il faut que notre classe soit immutable.
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/src/diagramme_classe1.PNG)
+![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/diagramme_classe1.PNG)
 
 ## Première tentative de solution
 
