@@ -102,7 +102,7 @@ Order Buy{name='Meta', type='Action', stopLoss=290}
 ```
 Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/diagramme_classe.PNG)
+![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe.PNG)
 
 ## Résolution du problème
 
