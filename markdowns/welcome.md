@@ -171,7 +171,7 @@ public record Criteria(String name, String type) {
 }
 ```
 avec le diagramme de classe suivant:
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe1.PNG)
+![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_calsse1.PNG)
 Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
 [markdowns/welcome.md](https://github.com/TechDotIO/techio-basic-template/blob/master/markdowns/welcome.md)
