@@ -1,10 +1,10 @@
 # Qu'est ce qu'un Design Pattern
 
-Le terme de Design Pattern est apparue suite à la publication du livre *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il presente une solution à un probleme de conception dans le paradigme de programmation orienté objet. Les Design Patterns montre la solution au probleme et explique comment mettre en oeuvre la solution.
+Le terme de Design Pattern est apparue suite à la publication d'un Essai de C. Alexander en 1977, *A Pattern Language: Towns, Buildings, Construction*. Cette notion a par la suite été repris dans l'ouvrage *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il presente une solution à un probleme de conception dans le paradigme de programmation orienté objet. Les Design Patterns montre la solution au probleme concerné et explique comment mettre en oeuvre la solution.
 
- Au debut de leur ouvrage, le Gand of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - mettent en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grace à des interfaces et non directement avec l'objet en question. Finalement, le developpeur ne doit se soucié uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoi une requète à un seconde objet - Le délégué - qui va transmettre la requete à l'objet recepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aidé l'emetteur.
+ Au début de leur ouvrage, le Gand of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - mettent en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grace à des interfaces et non directement avec l'objet en question. Finalement, le developpeur ne doit se soucié uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoi une requète à un seconde objet - Le délégué - qui va transmettre la requete à l'objet recepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aidé l'emetteur.
 
-Finalement, dans l'ouvrage, *Design Patterns*, est présenté un nombre de Designe Patterns car bien que des modèles généralisé, il n'est pas toujours nécessaire et pertinant d'utiliser un design plutot qu'un autre. Par ailleurs, les designes proposé sont classés en catégories dont en voici quelques une - modèle de Gof -:
+Finalement, dans l'ouvrage, *Design Patterns*, est présenté un nombre de Designe Patterns car bien que des modèles généralisé, il n'est pas toujours nécessaire et pertinant d'utiliser un design plutot qu'un autre. Par ailleurs, les designes proposé sont classés en catégories - modèle de Gof -:
 
 - <u>Creational Pattern</u> - modèle de création: Permet une optimisation de la création des objets
 - <u>Structural Pattern</u> - modèle de structuration: Permet de faire une suite de classe
@@ -12,75 +12,83 @@ Finalement, dans l'ouvrage, *Design Patterns*, est présenté un nombre de Desig
 
 # Mise en situation - Achat sur une place boursière
 
-**Contexte:** Vous êtes un boursicoteur qui souhaite acheter des produits financiers sur un marché. Pour passer vos ordres d'achat vous faites appel à un courtier, qui s'occupera d'effectuer votre achat. Attention, vous êtes un petit nouveau dans le domaine et vous ne voulez pas prendre trop de risque - le marché étant très liquide -. Ainsi, vous passez votre ordre avec un cours limité, c'est-à-dire que vous donnez le prix maximum pour lequel vous souhaitez acheter votre titre. Au delà, votre ordre ne sera pas effectué. 
+**Contexte:** Vous êtes un boursicoteur qui souhaite acheter des produits financiers sur un marché. Pour passer vos ordres d'achat vous faites appel à un courtier, qui s'occupera de les effectuer à votre place. Attention, vous êtes un petit nouveau dans le domaine et vous ne voulez pas prendre trop de risque - le marché étant très liquide -. Ainsi, vous passez votre ordre avec un cours limité avec un stopLoss.
 
-Voici la classe `Broker` qui correspond à votre courtier
-```java
-public class Broker {
-    private Integer stoploss;
-
-    public Broker(Integer stoploss) {
-        this.stoploss = stoploss;
-    }
-    public void setStoploss(Integer stoploss) {
-        this.stoploss = stoploss;
-    }
-    @Override
-    public String toString() {
-        return ""+stoploss ;
-    }
-}
-```
-Ici la class `FinancialProduct` correspond au produit financier que vous souhaitez acheter
+Ici la classe `FinancialProduct` correspond au produit financier que vous souhaitez acheter
 ```java
 public class FinancialProduct{
-    private String name;
-    private String type;
-    private Broker stopLoss;
+    private Criteria criteria;
+    private int stopLoss;
 
-    public FinancialProduct(String name, String type, Broker stopLoss) {
-        this.name = name;
-        this.type = type;
+    public FinancialProduct(Criteria criteria, int stopLoss) {
+        this.criteria = criteria;
         this.stopLoss = stopLoss;
     }
 
     @Override
     public String toString() {
         return "Order Buy{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
+                "name='" + criteria.getName() + '\'' +
+                ", type='" + criteria.getType() + '\'' +
                 ", stopLoss=" + stopLoss +
                 '}';
     }
 }
 ```
+Le produit financier admet differents critères qui sont dans la classe `Criteria`
+```java
+public class Criteria {
+    private String name;
+    private String type;
+
+    public Criteria(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public void setCriteria(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public String getName() {
+        return name;
+    }
+}
+```
+
 Présentement, vous allez demander à votre `Broker` de passer un ordre d'achat d`'action` à cours limité - stopLoss - à `1200€`, sur la firme `Tesla`.
 
 ```java
 public class Main {
     public static void main(String[] args) {
-        Broker broker = new Broker(1200);
-        FinancialProduct order1 = new FinancialProduct("Tesla", "action", broker);
+        Criteria criteria = new Criteria("Tesla", "Action");
+
+        FinancialProduct order1 = new FinancialProduct(criteria, 1200);
         System.out.println(order1 + "\n");
     }
 }
 ```
 Une fois cela fait votre courtier vous affiches les détails de l'ordre.
 ```
-Order Buy{name='Tesla', type='action', stopLoss=1200}
+Order Buy{name='Tesla', type='Action', stopLoss=1200}
 ```
 
-Cela fait vous decidez de passer un second ordre d'achat d'`action` avec un cours limité à `290€` cette fois-ci, sur l'entreprise `Meta`.
+Cela fait, vous decidez de passer un second ordre d'achat d'`Obligation` avec un cours limité à `290€` cette fois-ci, sur l'entreprise `Meta`.
 
 ```Java
 public class Main {
     public static void main(String[] args) {
-        Broker broker = new Broker(1200);
-        FinancialProduct order1 = new FinancialProduct("Tesla", "action", broker);
+        Criteria criteria = new Criteria("Tesla", "Action");
+
+        FinancialProduct order1 = new FinancialProduct(criteria, 1200);
         System.out.println(order1 + "\n");
 
-        broker.setStoploss(290);
-        FinancialProduct order2 = new FinancialProduct("Meta", "action", broker);
+        criteria.setCriteria("Meta", "Obligation");
+        FinancialProduct order2 = new FinancialProduct(criteria, 290);
 
         System.out.println(order1);
         System.out.println(order2);
@@ -89,45 +97,63 @@ public class Main {
 ```
 Une fois cela fait, le courtier vous affiches les détails de vos ordres d'achat..
 ```
-Order Buy{name='Tesla', type='action', stopLoss=290}
-Order Buy{name='Meta', type='action', stopLoss=290}
+Order Buy{name='Meta', type='Action', stopLoss=1200}
+Order Buy{name='Meta', type='Action', stopLoss=290}
 ```
-Mince, il y a une erreur dans les details de l'ordre sur `Tesla`! 😒
-Il faut que le stopLoss ne puisse pas etre modifié. Il faut que notre classe soit immutable.
+Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
 
 ![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/diagramme_classe1.PNG)
 
-## Première solution
+## Résolution du problème
 
-Dans la classe `Broker` c'est la methode `setStopLoss` - le setteur - qui vient apporter des modifications à l'objet. L'idée dans ce cas, est de ne plus pouvoir modifier le `stopLoss`. Il faut retirer le setteur et l'appel de la classe `main`
-
+Dans notre cas, le premier affichage est correct, mais le second est mauvais car l'on a modifier les critères du produit financier. Pour résoudre cet embrouillamini il suffirait de créer une nouvelle instance de l'objet `Critéria`! 😃
 ```java
-public class Broker {
-    private Integer stoploss;
+public class Main {
+    public static void main(String[] args) {
+        Criteria criteria1 = new Criteria("Tesla", "Action");
 
-    public Broker(Integer stoploss) {
-        this.stoploss = stoploss;
-    }
+        FinancialProduct order1 = new FinancialProduct(criteria1, 1200);
+        System.out.println(order1 + "\n");
 
-    @Override
-    public String toString() {
-        return ""+stoploss ;
+         Criteria criteria2 = new Criteria("Meta", "Obligation");
+        FinancialProduct order2 = new FinancialProduct(criteria2, 290);
+
+        System.out.println(order1);
+        System.out.println(order2);
     }
 }
 ```
-Voici à présent le résultat
+Cette fois-ci l'affichage est correct ! 😄
 ```
-Order Buy{name='Tesla', type='action', stopLoss=1200}
-Order Buy{name='Meta', type='action', stopLoss=1200}
+Order Buy{name='Tesla', type='Action', stopLoss=1200}
+Order Buy{name='Meta', type='Action', stopLoss=290}
 ```
-Le stopLoss n'a pas été modifier mais en même temps, vous n'avez pas pu préciser au `broker` le stopLoss du second ordre. Pour resoudre ce problème on pourrait ajouter un `broker` pour chaque ordre d'achat... Sauf que lorsque vous faites un ordre en bourse vous pouvez demander plusieurs fois au meme `broker`.
 
-Cette solution ne résoud pas correctement notre problème de départ.
+Notre problème est résolu temporairement... si un utilisateur du programme vient à modifier les critères plutôt que de recréer une instance, il créera un bug dans le programme. Il ne faut jamais faire confiance à un utilisateur. 😒
 
-## Seconde solution
+Nous allons faire en sorte que l'objet `Criteria` ne puisse plus être modifier après sa création. Pour cela, nous enlevons les `setteur` et les attributs de la classe en `final`.
 
+Voici la classe `Criteria` après ces modificaitons.
+```java
+public class Criteria {
+    private final String name;
+    private final String type;
 
+    public Criteria(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
 
+    public String getType() {
+        return type;
+    }
+    public String getName() {
+        return name;
+    }
+}
+```
+
+Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
 [markdowns/welcome.md](https://github.com/TechDotIO/techio-basic-template/blob/master/markdowns/welcome.md)
 What you are reading here is generated by this file. Tech.io uses the [Markdown syntax](https://tech.io/doc/reference-markdowns) to render text, media and to inject programming exercises.
