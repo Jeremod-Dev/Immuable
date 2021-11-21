@@ -102,7 +102,7 @@ Order Buy{name='Meta', type='Action', stopLoss=290}
 ```
 Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe.PNG)
+![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe0.PNG)
 
 ## Résolution du problème
 
@@ -152,6 +152,8 @@ public class Criteria {
     }
 }
 ```
+
+![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe.PNG)
 
 Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
