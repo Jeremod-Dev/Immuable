@@ -126,7 +126,7 @@ public class Main {
 Cette fois-ci l'affichage est correct ! 😄
 ```
 Order Buy{name='Tesla', type='Action', stopLoss=1200}
-Order Buy{name='Meta', type='Action', stopLoss=290}
+Order Buy{name='Meta', type='Obligation', stopLoss=290}
 ```
 
 Notre problème est résolu temporairement... si un utilisateur du programme vient à modifier les critères plutôt que de recréer une instance, il créera un bug dans le programme. Il ne faut jamais faire confiance à un utilisateur. 😒
