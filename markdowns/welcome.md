@@ -103,7 +103,7 @@ Order Buy{name='Meta', type='Obligation', stopLoss=290}
 ```
 Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
 
-![Diagramme De classe](https://siteedt.000webhostapp.com//Diagramme_classe0.PNG)
+![Diagramme De classe](https://siteedt.000webhostapp.com/Diagramme_classe0.PNG)
 
 ## Résolution du problème
 
