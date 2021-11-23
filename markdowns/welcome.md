@@ -103,7 +103,7 @@ Order Buy{name='Meta', type='Obligation', stopLoss=290}
 ```
 Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe0.PNG)
+![Diagramme De classe](https://siteedt.000webhostapp.com//Diagramme_classe0.PNG)
 
 ## Résolution du problème
 
@@ -154,7 +154,7 @@ public final class Criteria {
 }
 ```
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe.PNG)
+![Diagramme De classe](https://siteedt.000webhostapp.com/Diagramme_classe.PNG)
 
 En Java 14, il est possible de créer un objet qui ne sera jamais modifié après sa création grâce au mot-clé `record`.
 
@@ -173,7 +173,7 @@ public record Criteria(String name, String type) {
 ```
 avec le diagramme de classe suivant:
 
-![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_calsse1.PNG)
+![Diagramme De classe](https://siteedt.000webhostapp.com/Diagramme_calsse1.PNG)
 
 Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
