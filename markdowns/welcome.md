@@ -1,14 +1,14 @@
 # Qu'est ce qu'un Design Pattern
 
-Le terme de Design Pattern est apparue suite à la publication d'un Essai de C. Alexander en 1977, *A Pattern Language: Towns, Buildings, Construction*. Cette notion a par la suite été repris dans l'ouvrage *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il presente une solution à un probleme de conception dans le paradigme de programmation orienté objet. Les Design Patterns montre la solution au probleme concerné et explique comment mettre en oeuvre la solution.
+Le terme de *design pattern* est apparue suite à la publication d'un essai de C. Alexander en 1977, *A Pattern Language: Towns, Buildings, Construction*. Cette notion a par la suite été repris dans l'ouvrage *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il présente une solution à un problème de conception dans le paradigme de programmation orienté objet. Les design patterns montre la solution au probleme concerné et explique comment mettre en oeuvre la solution.
 
- Au début de leur ouvrage, le Gand of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - mettent en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grace à des interfaces et non directement avec l'objet en question. Finalement, le developpeur ne doit se soucié uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoi une requète à un seconde objet - Le délégué - qui va transmettre la requete à l'objet recepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aidé l'emetteur.
+ Au début de leur ouvrage, le Gand of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - met en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grace à des interfaces et non directement avec l'objet en question. Finalement, le développeur ne doit se soucier uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoie une requête à un second objet - le délégué - qui va transmettre la requête à l'objet récepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aidé l'émetteur.
 
-Finalement, dans l'ouvrage, *Design Patterns*, est présenté un nombre de Designe Patterns car bien que des modèles généralisé, il n'est pas toujours nécessaire et pertinant d'utiliser un design plutot qu'un autre. Par ailleurs, les designes proposé sont classés en catégories - modèle de Gof -:
+Finalement, dans l'ouvrage, *Design Patterns*, sont présentés un certain nombre de design patterns car bien que ce soit des modèles généralisés, il n'est pas toujours nécessaire et pertinent d'utiliser un design plutôt qu'un autre. Par ailleurs, les designs proposés sont classés en catégories - modèle de Gof -:
 
 - <u>Creational Pattern</u> - modèle de création: Permet une optimisation de la création des objets
-- <u>Structural Pattern</u> - modèle de structuration: Permet de faire une suite de classe
-- <u>Behavioral patterns</u> - modèle de Comportement: Permet d'apporter des solutions à des problèmes recurrent programmation informatique. 
+- <u>Structural Pattern</u> - modèle de structuration: Permet d'augmenter la fonctionnalité des objets, sans modifier leur composition
+- <u>Behavioral patterns</u> - modèle de Comportement: Conçues en fonction de la façon avec lequel les classes communiquent en elles-mêmes
 
 # Mise en situation - Achat sur une place boursière
 
@@ -35,7 +35,7 @@ public class FinancialProduct{
     }
 }
 ```
-Le produit financier admet differents critères qui sont dans la classe `Criteria`
+Le produit financier admet différents critères qui sont dans la classe `Criteria`
 ```java
 public class Criteria {
     private String name;
@@ -106,7 +106,7 @@ Mince... les critères du titre financier du premier ordre ne sont plus bon! �
 
 ## Résolution du problème
 
-Dans notre cas, le premier affichage est correct, mais le second est mauvais car l'on a modifier les critères du produit financier. Pour résoudre cet embrouillamini il suffirait de créer une nouvelle instance de l'objet `Critéria`! 😃
+Dans notre cas, le premier affichage est correct, mais le second est mauvais car l'on a modifié les critères du produit financier. Pour résoudre cet embrouillamini il suffirait de créer une nouvelle instance de l'objet `Critéria`! 😃
 ```java
 public class Main {
     public static void main(String[] args) {
