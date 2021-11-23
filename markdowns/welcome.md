@@ -73,7 +73,7 @@ public class Main {
     }
 }
 ```
-Une fois cela fait votre courtier vous affiches les détails de l'ordre.
+Une fois cela fait votre courtier vous affiche les détails de l'ordre.
 ```
 Order Buy{name='Tesla', type='Action', stopLoss=1200}
 ```
@@ -156,7 +156,7 @@ public final class Criteria {
 
 ![Diagramme De classe](https://github.com/Jeremod-Dev/DesignPattern/blob/master/markdowns/Diagramme_classe.PNG)
 
-En Java 14, il est possible de créer un objet qui ne sera jamais modifier après sa création grace au mot-clef `record`.
+En Java 14, il est possible de créer un objet qui ne sera jamais modifié après sa création grâce au mot-clé `record`.
 
 Notre classe `Criteria` devient alors ceci
 ```java
@@ -178,13 +178,13 @@ avec le diagramme de classe suivant:
 Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
 ## Présentation du Design Pattern Immutable
-Ce design propose de créer une nouvelle instance de l'objet plutôt que de modifier la classe. Ainsi il faut proteger la classe.
+Ce design propose de créer une nouvelle instance de l'objet plutôt que de modifier la classe. Ainsi il faut protéger la classe.
 
 Ce design appartient à la catégorie des designs `concurrent`.
 
 ## Les Avantages de l'immuabilité
 
-Les classes immuable ont des avantages:
+Les classes immuables ont des avantages:
 
 - Thread-safe et fortement conseillé dans un environnement en multithread
 - Facilement lisible car elle n'admet pas de méthode de modification
@@ -192,13 +192,13 @@ Les classes immuable ont des avantages:
 
 ## Les Limites de l'immuabilité
 
-Les classe immuable ont des inconvénients:
-- Création de nouvelle instance (couteux en mémoire)
-- Utilisation peu fréquente.
+Les classes immuables ont des inconvénients:
+- Création de nouvelles instances (coûteux en mémoire)
+- Utilisation peu fréquentes.
 
 ## Le lien avec les principes SOLID
 
-Dans le paradygme de programmation orienté objet, il existe 5 principes de conception architectural. Ces principes sont réuni dans l'acrynome SOLID
+Dans le paradygme de programmation orienté objet, il existe 5 principes de conception architectural. Ces principes sont réunis dans l'acrynome SOLID
 
 S - **Single Responsibility Principle:** Une responsabilité par classe
 
@@ -210,7 +210,7 @@ I - **Interface segregation Principle:** Préférer plusieurs interfaces spécif
 
 D - **Dependency Inversion Principle:** Les objets de haut niveau ne doivent pas dépendre des objets de bas niveau
 
-Le fait est, ici, que la classe immuable est simplement une classe plus réstrictive mais il est possible de concevoir un programme qui respecte tous ces principes.
+Le fait est, ici, que la classe immuable est simplement une classe plus restrictive mais il est possible de concevoir un programme qui respecte tous ces principes.
 
 #### Lien vers le github
 
