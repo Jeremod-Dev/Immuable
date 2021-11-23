@@ -97,7 +97,7 @@ public class Main {
 ```
 Une fois cela fait, le courtier vous affiches les détails de vos ordres d'achat..
 ```
-Order Buy{name='Meta', type='Action', stopLoss=1200}
+Order Buy{name='Meta', type='Obligation', stopLoss=1200}
 Order Buy{name='Meta', type='Obligation', stopLoss=290}
 ```
 Mince... les critères du titre financier du premier ordre ne sont plus bon! 😒
