@@ -1,8 +1,8 @@
 # Qu'est ce qu'un Design Pattern
 
-Le terme de *design pattern* est apparue suite à la publication d'un essai de C. Alexander en 1977, *A Pattern Language: Towns, Buildings, Construction*. Cette notion a par la suite été repris dans l'ouvrage *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il présente une solution à un problème de conception dans le paradigme de programmation orienté objet. Les design patterns montre la solution au probleme concerné et explique comment mettre en oeuvre la solution.
+Le terme de *design pattern* est apparue suite à la publication d'un essai de C. Alexander en 1977, *A Pattern Language: Towns, Buildings, Construction*. Cette notion a par la suite été repris dans l'ouvrage *Design Patterns* par Gamma, Helm, Johnson et Vlissides en 1994. Il présente une solution à un problème de conception dans le paradigme de programmation orienté objet. Les design patterns montrent la solution aux problèmes concernés et expliquent comment mettre en oeuvre la solution.
 
- Au début de leur ouvrage, le Gand of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - met en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grace à des interfaces et non directement avec l'objet en question. Finalement, le développeur ne doit se soucier uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoie une requête à un second objet - le délégué - qui va transmettre la requête à l'objet récepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aidé l'émetteur.
+ Au début de leur ouvrage, le Gang of Four - surnom donné aux auteurs de l'ouvrage *Design Patterns* - met en avant les principes de Gamma. Le premier principe explicite qu'il est préconisé et plus fiable de programmer vers une interface. Le développeur devrait programmer grâce à des interfaces et non directement avec l'objet en question. Finalement, le développeur ne doit se soucier uniquement des communications avec l'objet - ce qu'il peut envoyer et recevoir - et non l'objet qui se cache derrière. Le deuxieme principe est la délégation du code qui permet la réutilisation de morceau de code. L'objet principal envoie une requête à un second objet - le délégué - qui va transmettre la requête à l'objet récepteur. Ainsi dans ce processus, la communication va passer par trois acteurs dont un qui vient aider l'émetteur.
 
 Finalement, dans l'ouvrage, *Design Patterns*, sont présentés un certain nombre de design patterns car bien que ce soit des modèles généralisés, il n'est pas toujours nécessaire et pertinent d'utiliser un design plutôt qu'un autre. Par ailleurs, les designs proposés sont classés en catégories - modèle de Gof -:
 
@@ -200,18 +200,21 @@ Les classe immuable ont des inconvénients:
 
 Dans le paradygme de programmation orienté objet, il existe 5 principes de conception architectural. Ces principes sont réuni dans l'acrynome SOLID
 
-S - Single Responsibility Principle
+S - **Single Responsibility Principle:** Une responsabilité par classe
 
-O - Open Closed Principle
+O - **Open Closed Principle:** Ouverture aux implémentations et fermé aux modifications
 
-L - Liskov Substitution Principle
+L - **Liskov Substitution Principle:** Les sous-types doivent pouvoir être substitué à leur type de base.
 
-I - Interface segregation Principle
+I - **Interface segregation Principle:** Préférer plusieurs interfaces spécifiques plutôt qu'une seule générale
 
-D - Dependency Inversion Principle
+D - **Dependency Inversion Principle:** Les objets de haut niveau ne doivent pas dépendre des objets de bas niveau
 
-Le fait est ici que la classe immuable est simplement une classe plus réstrictive mais il est possible de concevoir un programme qui respect tous ces principes.
+Le fait est, ici, que la classe immuable est simplement une classe plus réstrictive mais il est possible de concevoir un programme qui respecte tous ces principes.
 
+#### Lien vers le github
+
+https://github.com/Jeremod-Dev/Immuable.git
 
 ## Réferences utilisées
 
