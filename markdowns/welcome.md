@@ -178,6 +178,39 @@ avec le diagramme de classe suivant:
 Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 
 ## Présentation du Design Pattern Immutable
+Ce design propose de créer une nouvelle instance de l'objet plutôt que de modifier la classe. Ainsi il faut proteger la classe.
+
+Ce design appartient à la catégorie des designs `concurrent`.
+
+## Les Avantages de l'immuabilité
+
+Les classes immuable ont des avantages:
+
+- Thread-safe et fortement conseillé dans un environnement en multithread
+- Facilement lisible car elle n'admet pas de méthode de modification
+- Constructeur n'est pas nécéssaire. 
+
+## Les Limites de l'immuabilité
+
+Les classe immuable ont des inconvénients:
+- Création de nouvelle instance (couteux en mémoire)
+- Utilisation peu fréquente.
+
+## Le lien avec les principes SOLID
+
+Dans le paradygme de programmation orienté objet, il existe 5 principes de conception architectural. Ces principes sont réuni dans l'acrynome SOLID
+
+S - Single Responsibility Principle
+
+O - Open Closed Principle
+
+L - Liskov Substitution Principle
+
+I - Interface segregation Principle
+
+D - Dependency Inversion Principle
+
+Le fait est ici que la classe immuable est simplement une classe plus réstrictive mais il est possible de concevoir un programme qui respect tous ces principes.
 
 
 ## Réferences utilisées
@@ -187,3 +220,7 @@ https://gfx.developpez.com/tutoriel/java/immuables/#LII
 https://wodric.com/classe-immutable/
 
 https://lkumarjain.blogspot.com/2016/02/immutable-design-pattern.html
+
+https://springframework.guru/gang-of-four-design-patterns/
+
+https://fr.wikipedia.org/wiki/Objet_immuable
