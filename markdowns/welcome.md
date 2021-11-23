@@ -8,7 +8,8 @@ Finalement, dans l'ouvrage, *Design Patterns*, sont présentés un certain nombr
 
 - <u>Creational Pattern</u> - modèle de création: Permet une optimisation de la création des objets
 - <u>Structural Pattern</u> - modèle de structuration: Permet d'augmenter la fonctionnalité des objets, sans modifier leur composition
-- <u>Behavioral patterns</u> - modèle de Comportement: Conçues en fonction de la façon avec lequel les classes communiquent en elles-mêmes
+- <u>Behavioral patterns</u> - modèle de Comportement: Conçus en fonction de la façon avec laquelle les classes communiquent entre elles
+
 
 # Mise en situation - Achat sur une place boursière
 
@@ -182,5 +183,7 @@ Nous avons utilisé ici, sans le savoir, un design pattern nommée `immutable`
 ## Réferences utilisées
 
 https://gfx.developpez.com/tutoriel/java/immuables/#LII
+
 https://wodric.com/classe-immutable/
+
 https://lkumarjain.blogspot.com/2016/02/immutable-design-pattern.html
